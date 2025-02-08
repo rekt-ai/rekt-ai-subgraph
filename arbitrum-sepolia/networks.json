@@ -1,0 +1,8 @@
+{
+  "arbitrum-sepolia": {
+    "RektPredictionMarket": {
+      "address": "0xc7d9Feb7d4591BbBDCE342085308f3C4cb81B783",
+      "startBlock": 121287572
+    }
+  }
+}

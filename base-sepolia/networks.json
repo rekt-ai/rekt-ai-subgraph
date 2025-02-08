@@ -1,0 +1,8 @@
+{
+  "base-sepolia": {
+    "RektPredictionMarket": {
+      "address": "0xBe871f9a85330BD95ff3Bcdd7AF57da4282cfD3e",
+      "startBlock": 21617855
+    }
+  }
+}

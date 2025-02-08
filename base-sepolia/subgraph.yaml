@@ -1,0 +1,38 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RektPredictionMarket
+    network: base-sepolia
+    source:
+      address: "0xBe871f9a85330BD95ff3Bcdd7AF57da4282cfD3e"
+      abi: RektPredictionMarket
+      startBlock: 21617855
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - MarketCreated
+        - MarketParticipation
+        - MarketSettled
+        - OwnershipTransferred
+        - WithdrawBalance
+      abis:
+        - name: RektPredictionMarket
+          file: ./abis/RektPredictionMarket.json
+      eventHandlers:
+        - event: MarketCreated(indexed uint256,uint256,uint256)
+          handler: handleMarketCreated
+        - event: MarketParticipation(indexed uint256,indexed address,uint256)
+          handler: handleMarketParticipation
+        - event: MarketSettled(indexed uint256,indexed address,uint256,uint256,uint256)
+          handler: handleMarketSettled
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: WithdrawBalance(indexed address,uint256)
+          handler: handleWithdrawBalance
+      file: ./src/rekt-prediction-market.ts
